@@ -34,7 +34,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 loaders: 'style-loader!css-loader',
-                exclude: /node_modules/
+                include: /node_modules/
             },
             {
                 test: /\.(jpg|jpeg|gif|png|ico)$/,
@@ -48,9 +48,8 @@ module.exports = {
     },
     devtool: 'source-map',
     plugins: [
-        new webpack.NoErrorsPlugin(),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin({ mangle: { keep_fnames: false } }),
+        // new webpack.NoErrorsPlugin(),
+        // new webpack.optimize.UglifyJsPlugin({ mangle: { keep_fnames: false } }),
         new webpack.DefinePlugin({
             'process.env': {
                 'ENV': JSON.stringify(ENV)
@@ -63,16 +62,16 @@ module.exports = {
             { from: path.resolve(__dirname, 'node_modules/@salesforce-ux/design-system/assets/fonts'), to: 'assets/fonts' },
             { from: path.resolve(__dirname, 'node_modules/@salesforce-ux/design-system/assets/images'), to: 'assets/images' },
             { from: path.resolve(__dirname, 'node_modules/@salesforce-ux/design-system/assets/styles'), to: 'assets/styles' },
-            {
-                context: path.resolve(__dirname, 'node_modules/@salesforce-ux/design-system/assets/icons'),
-                form: '**/symbols.svg',
-                to: 'assets/icons'
-            }
+            // {
+            //     context: path.resolve(__dirname, 'node_modules/@salesforce-ux/design-system/assets/icons'),
+            //     form: '**/symbols.svg',
+            //     to: 'assets/icons'
+            // }
         ]),
         new HtmlWebpackPlugin({
             filename: './index.html',
-            template: SRC_PATH + './index.html',
-            favicon: SRC_PATH + './static/img/favicon.ico',
+            template: SRC_PATH + '/index.html',
+            favicon: SRC_PATH + '/static/img/favicon.ico',
             inject: true
         })
     ]
