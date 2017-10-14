@@ -1,1 +1,8 @@
-<h1>verification</h1>
+<div class="title slds-align_absolute-center slds-text-heading_small">请在下方输入您的激活码</div>
+<div class="slds-m-top_large slds-form-element" [ngClass]="error?'slds-has-error':''">
+    <div class="slds-form-element__control">
+        <input class="slds-input" type="text" placeholder="激活码" [(ngModel)]="vCode" (ngModelChange)="error = false;" />
+    </div>
+    <div class="slds-form-element__help" *ngIf="error">验证失败</div>
+</div>
+<button class="slds-m-top_large" type="button" nglButton="brand" [disabled]="!vCode" (click)="verify()">验证</button>

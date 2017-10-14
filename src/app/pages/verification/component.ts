@@ -12,9 +12,20 @@ import { TipService } from '../../tipService';
 
 export class VerificationComponent implements OnInit, OnChanges {
 
+    vCode: string;
+    error: boolean = false;
+
     constructor(private globalFn: GlobalFn, private route: ActivatedRoute, private router: Router, private tipService: TipService) { }
 
     ngOnInit() { }
 
     ngOnChanges() { }
+
+    verify() {
+        if (this.vCode == 'aaa') {
+            this.router.navigate(['../gifts', { vCode: this.vCode }], { relativeTo: this.route });
+        } else {
+            this.error = true;
+        }
+    }
 }

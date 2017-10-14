@@ -1,0 +1,13 @@
+html {
+    padding: 5rem;
+    font-size: calc(20vw / 3.75) !important;
+}
+
+button {
+    width: 100% !important;
+}
+
+/* ngl-lightning adjust */
+/* .slds-input {
+    transition-duration: 0s !important;
+} */

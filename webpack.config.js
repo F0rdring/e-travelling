@@ -62,11 +62,7 @@ module.exports = {
             { from: path.resolve(__dirname, 'node_modules/@salesforce-ux/design-system/assets/fonts'), to: 'assets/fonts' },
             { from: path.resolve(__dirname, 'node_modules/@salesforce-ux/design-system/assets/images'), to: 'assets/images' },
             { from: path.resolve(__dirname, 'node_modules/@salesforce-ux/design-system/assets/styles'), to: 'assets/styles' },
-            // {
-            //     context: path.resolve(__dirname, 'node_modules/@salesforce-ux/design-system/assets/icons'),
-            //     form: '**/symbols.svg',
-            //     to: 'assets/icons'
-            // }
+            { from: path.resolve(__dirname, 'node_modules/@salesforce-ux/design-system/assets/icons'), to: 'assets/icons' }
         ]),
         new HtmlWebpackPlugin({
             filename: './index.html',

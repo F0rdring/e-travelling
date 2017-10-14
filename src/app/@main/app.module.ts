@@ -14,6 +14,10 @@ import { AuthGuard } from './auth-guard.service';
 import { RootComponent } from '../@root/component';
 //common components
 import { VerificationComponent } from '../pages/verification/component';
+import { GiftsComponent } from '../pages/gifts/component';
+import { LoginComponent } from '../pages/login/component';
+import { RegisterComponent } from '../pages/register/component';
+import { SucceedComponent } from '../pages/succeed/component';
 
 @NgModule({
     imports: [
@@ -26,7 +30,11 @@ import { VerificationComponent } from '../pages/verification/component';
     ],
     declarations: [
         RootComponent,
-        VerificationComponent
+        VerificationComponent,
+        GiftsComponent,
+        LoginComponent,
+        RegisterComponent,
+        SucceedComponent
     ],
     providers: [
         GlobalFn,

@@ -1,0 +1,27 @@
+<div class="title slds-align_absolute-center slds-text-heading_small">请注册您的账号以完成绑定</div>
+<div class="slds-m-top_large slds-form-element">
+    <div class="slds-form-element__control">
+        <input class="slds-input" type="text" placeholder="手机号码" [(ngModel)]="cellNumber" />
+    </div>
+</div>
+<div class="slds-m-top_x-small slds-form-element">
+    <div class="slds-form-element__control">
+        <input class="slds-input" type="text" placeholder="密码" [(ngModel)]="password" />
+    </div>
+</div>
+<div class="slds-m-top_x-small slds-form-element">
+    <div class="slds-form-element__control">
+        <input class="slds-input" type="text" placeholder="再次输入密码" [(ngModel)]="password" />
+    </div>
+</div>
+<div class="slds-m-top_x-small slds-grid slds-wrap slds-grid_pull-padded">
+    <div class="slds-p-horizontal_small slds-size_2-of-3 slds-form-element">
+        <div class="slds-form-element__control">
+            <input class="slds-input" type="text" placeholder="手机验证码" [(ngModel)]="password" />
+        </div>
+    </div>
+    <button class="slds-p-horizontal_small slds-size_1-of-3 m-l" type="button" nglButton="brand" (click)="getCellCode()">获取验证码</button>
+</div>
+<button class="slds-m-top_large" type="button" nglButton="brand" (click)="register()">注册</button>
+<div class="slds-m-top_x-small text_x-small">By pressing Sign Up you agree with the Terms of Service and Privacy Policy.</div>
+<button class="slds-m-top_x-small" type="button" nglButton="neutral" (click)="login()">已经有一个账号？</button>
