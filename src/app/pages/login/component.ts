@@ -12,17 +12,26 @@ import { TipService } from '../../tipService';
 
 export class LoginComponent implements OnInit, OnChanges {
 
+    cellNumber: number;
+    cellCode: number;
+    giftcode: string;
+
     constructor(private globalFn: GlobalFn, private route: ActivatedRoute, private router: Router, private tipService: TipService) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.route.params.subscribe(params => {
+            alert(params.giftcode);
+            this.giftcode = params.giftcode;
+        });
+    }
 
     ngOnChanges() { }
 
-    login() {
-        this.router.navigate(['../succeed'], { relativeTo: this.route });
+    getCellCode() {
+        alert('已将验证短信发送至您的手机上！');
     }
 
-    register() {
-        this.router.navigate(['../register'], { relativeTo: this.route });
+    login() {
+        this.router.navigate(['../succeed', { giftcode: this.giftcode }], { relativeTo: this.route });
     }
 }

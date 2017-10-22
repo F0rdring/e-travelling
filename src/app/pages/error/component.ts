@@ -4,28 +4,24 @@ import { GlobalFn } from '../../global-fn';
 import { TipService } from '../../tipService';
 
 @Component({
-    selector: 'verification',
+    selector: 'error',
     template: require('./template.html'),
     styles: [require('./style.css')],
     providers: [TipService]
 })
 
-export class VerificationComponent implements OnInit, OnChanges {
+export class ErrorComponent implements OnInit, OnChanges {
 
-    vCode: string;
-    error: boolean = false;
+    giftcode: string;
 
     constructor(private globalFn: GlobalFn, private route: ActivatedRoute, private router: Router, private tipService: TipService) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.route.params.subscribe(params => {
+            alert(params.giftcode);
+            this.giftcode = params.giftcode;
+        });
+    }
 
     ngOnChanges() { }
-
-    verify() {
-        if (this.vCode == 'aaa') {
-            this.router.navigate(['../gifts', { vCode: this.vCode }], { relativeTo: this.route });
-        } else {
-            this.error = true;
-        }
-    }
 }

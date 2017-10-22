@@ -22,6 +22,7 @@
     "@types/html2canvas": "latest",
     "@webcomponents/custom-elements": "latest",
     "core-js": "latest",
+    "crypto": "latest",
     "dragula": "latest",
     "echarts": "latest",
     "echarts-gl": "latest",
@@ -31,6 +32,8 @@
     "ng-lightning": "latest",
     "ng2-dragula": "latest",
     "ng2-page-scroll": "latest",
+    "node-schedule": "latest",
+    "qs": "latest",
     "reflect-metadata": "latest",
     "rxjs": "latest",
     "zone.js": "latest"

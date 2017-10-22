@@ -48,8 +48,7 @@ module.exports = {
     },
     devtool: 'source-map',
     plugins: [
-        // new webpack.NoErrorsPlugin(),
-        // new webpack.optimize.UglifyJsPlugin({ mangle: { keep_fnames: false } }),
+        new webpack.optimize.UglifyJsPlugin({ mangle: { keep_fnames: false } }),
         new webpack.DefinePlugin({
             'process.env': {
                 'ENV': JSON.stringify(ENV)

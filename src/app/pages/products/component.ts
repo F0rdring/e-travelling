@@ -5,35 +5,34 @@ import { Service } from './service';
 import { TipService } from '../../tipService';
 
 @Component({
-    selector: 'gifts',
+    selector: 'products',
     template: require('./template.html'),
     styles: [require('./style.css')],
     providers: [Service, TipService]
 })
 
-export class GiftsComponent implements OnInit, OnChanges {
+export class ProductsComponent implements OnInit, OnChanges {
 
     gift: string = '1';
-    date: string = (new Date().toLocaleDateString()).replace(/\\/g, '-').replace(/\//g, '-');
-    open: boolean = true;
-    giftcode: string;
+    number: number;
+    open: boolean = false;
 
     constructor(private globalFn: GlobalFn, private service: Service, private route: ActivatedRoute, private router: Router, private tipService: TipService) { }
 
-    ngOnInit() {
-        this.route.params.subscribe(params => {
-            alert(params.giftcode);
-            this.giftcode = params.giftcode;
-        });
-    }
+    ngOnInit() { }
 
     ngOnChanges() { }
 
-    showDetail() {
+    showDetail(value?: any) {
         this.open = true;
+        console.log(value);
     }
 
-    confirm() {
-        this.router.navigate(['../login', { giftcode: this.giftcode }], { relativeTo: this.route });
+    purchase() {
+        this.router.navigate(['../purchase'], { relativeTo: this.route });
+    }
+
+    mine() {
+        this.router.navigate(['../mine'], { relativeTo: this.route });
     }
 }

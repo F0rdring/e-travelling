@@ -1,0 +1,14 @@
+<div class="page-container">
+    <div class="title slds-align_absolute-center slds-text-heading_small">欢迎登录e驾游产品中心</div>
+    <div class="slds-m-top_large slds-form-element">
+        <div class="slds-form-element__control">
+            <input class="slds-input" type="text" placeholder="用户名" [(ngModel)]="username" />
+        </div>
+    </div>
+    <div class="slds-m-top_x-small slds-form-element">
+        <div class="slds-form-element__control">
+            <input class="slds-input" type="text" placeholder="密码" [(ngModel)]="password" />
+        </div>
+    </div>
+    <button class="slds-m-top_x-small" type="button" nglButton="brand" (click)="login()">登录</button>
+</div>

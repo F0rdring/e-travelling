@@ -12,9 +12,16 @@ import { TipService } from '../../tipService';
 
 export class SucceedComponent implements OnInit, OnChanges {
 
+    giftcode: string;
+
     constructor(private globalFn: GlobalFn, private route: ActivatedRoute, private router: Router, private tipService: TipService) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.route.params.subscribe(params => {
+            alert(params.giftcode);
+            this.giftcode = params.giftcode;
+        });
+    }
 
     ngOnChanges() { }
 }

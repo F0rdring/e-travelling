@@ -10,7 +10,7 @@
     background-size: cover;
     font-weight: bold;
     color: #0070d2;
-    padding: 6.3rem 3rem 0 3rem;
+    padding: 7.5rem 3rem 0 3rem;
 }
 
 .slds-text-heading_medium {
@@ -27,15 +27,16 @@ button {
     width: 100% !important;
 }
 
+.slds-button + .slds-button {
+    margin-left: 0 !important;
+}
+
 .title .slds-form-element {
-    margin-top: 7.5rem;
+    margin-top: 8.3625rem;
 }
 
 .text_x-small {
     text-align: right;
-}
-
-.text_x-small {
     color: #0070d2;
 }
 
@@ -45,4 +46,8 @@ button {
 
 .slds-form-element__label {
     min-width: 5rem;
+}
+
+.co-width {
+    width: calc(100% - 5rem);
 }

@@ -1,7 +1,7 @@
 <div class="page-container">
     <div class="title">
-        <div class="slds-align_absolute-center slds-text-heading_medium">感谢您的参与！</div>
-        <div class="slds-align_absolute-center slds-text-heading_small slds-m-top_x-small">我们为您准备了以下礼品</div>
+        <div class="slds-align_absolute-center slds-text-heading_medium">欢迎您，XX用户</div>
+        <div class="slds-align_absolute-center slds-text-heading_small slds-m-top_x-small">请选择您要购买的产品</div>
         <div class="slds-form-element">
             <div class="slds-form-element__control">
                 <div class="slds-select_container">
@@ -20,12 +20,12 @@
         </div>
         <div class="slds-form-element slds-m-top_x-small">
             <div class="slds-grid slds-grid_align-spread slds-form-element__control">
-                <label class="slds-form-element__label slds-align_absolute-center">生效日期</label>
-                <input class="slds-input" type="date" [(ngModel)]="date" />
+                <label class="slds-form-element__label slds-align_absolute-center">数量</label>
+                <input class="slds-input" type="number" [(ngModel)]="number" />
             </div>
         </div>
-        <button class="slds-m-top_x-small" type="button" nglButton="brand" (click)="confirm()">登陆领取！</button>
-        <div class="slds-m-top_x-small text_x-small">也可以通过右上角的菜单发送给朋友哦</div>
+        <button class="slds-m-top_x-small" type="button" nglButton="brand" [disabled]="!number" (click)="purchase()">购买</button>
+        <button class="slds-m-top_x-small" type="button" nglButton="brand" (click)="mine()">查看我已购买的产品</button>
     </div>
 </div>
 

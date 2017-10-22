@@ -4,13 +4,16 @@ import { GlobalFn } from '../../global-fn';
 import { TipService } from '../../tipService';
 
 @Component({
-    selector: 'register',
+    selector: 'entlogin',
     template: require('./template.html'),
     styles: [require('./style.css')],
     providers: [TipService]
 })
 
-export class RegisterComponent implements OnInit, OnChanges {
+export class EntloginComponent implements OnInit, OnChanges {
+
+    username: string;
+    password: string;
 
     constructor(private globalFn: GlobalFn, private route: ActivatedRoute, private router: Router, private tipService: TipService) { }
 
@@ -18,11 +21,7 @@ export class RegisterComponent implements OnInit, OnChanges {
 
     ngOnChanges() { }
 
-    register() {
-        this.router.navigate(['../succeed'], { relativeTo: this.route });
-    }
-
     login() {
-        this.router.navigate(['../login'], { relativeTo: this.route });
+        this.router.navigate(['../products'], { relativeTo: this.route });
     }
 }

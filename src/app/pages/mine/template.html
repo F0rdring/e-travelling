@@ -1,0 +1,38 @@
+<div class="page-container">
+    <div class="title">
+        <div class="slds-align_absolute-center slds-text-heading_small">请选择您要发送的产品</div>
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <div class="slds-select_container">
+                    <select class="slds-select" [(ngModel)]="gift" (ngModelChange)="setProduct($event)">
+                        <option [value]="'2days'">马鞍山国庆特惠二日游</option>
+                        <option [value]="'3days'">马鞍山国庆特惠三日游</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="slds-clearfix">
+            <div class="slds-float_right">
+                <a class="text_x-small">剩余数量{{rest}}个</a>
+            </div>
+        </div>
+        <div class="slds-form-element slds-m-top_x-small">
+            <div class="slds-grid slds-grid_align-spread slds-form-element__control">
+                <label class="slds-form-element__label slds-align_absolute-center">数量</label>
+                <div class="slds-form-element co-width">
+                    <div class="slds-form-element__control">
+                        <div class="slds-select_container">
+                            <select class="slds-select" [(ngModel)]="number">
+                                <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-m-top_x-large bold">发送流程：</div>
+        <div>点击右上角菜单->发送给朋友</div>
+    </div>
+</div>

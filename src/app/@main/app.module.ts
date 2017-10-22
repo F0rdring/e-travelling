@@ -13,11 +13,13 @@ import { AuthGuard } from './auth-guard.service';
 //root component
 import { RootComponent } from '../@root/component';
 //common components
-import { VerificationComponent } from '../pages/verification/component';
+import { EntloginComponent } from '../pages/entlogin/component';
+import { ProductsComponent } from '../pages/products/component';
+import { MineComponent } from '../pages/mine/component';
 import { GiftsComponent } from '../pages/gifts/component';
 import { LoginComponent } from '../pages/login/component';
-import { RegisterComponent } from '../pages/register/component';
 import { SucceedComponent } from '../pages/succeed/component';
+import { ErrorComponent } from '../pages/error/component';
 
 @NgModule({
     imports: [
@@ -30,11 +32,13 @@ import { SucceedComponent } from '../pages/succeed/component';
     ],
     declarations: [
         RootComponent,
-        VerificationComponent,
+        EntloginComponent,
+        ProductsComponent,
+        MineComponent,
         GiftsComponent,
         LoginComponent,
-        RegisterComponent,
-        SucceedComponent
+        SucceedComponent,
+        ErrorComponent
     ],
     providers: [
         GlobalFn,

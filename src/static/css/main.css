@@ -1,15 +1,6 @@
 html {
-    padding: 5rem;
-    font-size: calc(20vw / 3.75) !important;
-}
-
-button {
-    width: 100% !important;
-}
-
-/* html {
     height: 100%;
-    font-family: "Microsoft YaHei";
+    font-size: calc(5vw) !important;
 }
 
 body {
@@ -17,4 +8,54 @@ body {
     min-height: 100%;
     margin: 0;
     padding: 0;
-} */
+}
+
+.slds-button_icon-inverse:focus, .slds-button--icon-inverse:focus {
+    box-shadow: none !important;
+}
+
+.succeed .slds-icon-action-approval {
+    background: #ffb75d;
+}
+
+.body-loading {
+    display: none;
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    background: url('../img/red_packet_bottom.jpg') repeat;
+    z-index: -1;
+}
+
+.spinner {
+    width: 7rem;
+    height: 7rem;
+    background: url('../img/logo.jpg');
+    background-size: cover;
+    margin: 6.3rem auto 0 auto;
+    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+    animation: sk-rotateplane 1.2s infinite ease-in-out;
+    z-index: -1;
+}
+
+@-webkit-keyframes sk-rotateplane {
+    0% { -webkit-transform: perspective(120px) }
+    33% { -webkit-transform: perspective(120px) rotateY(180deg) }
+    66% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+    100% { -webkit-transform: perspective(120px) }
+}
+
+@keyframes sk-rotateplane {
+    0% { 
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+    } 33% { 
+        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+    } 66% { 
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    } 100% {
+        -webkit-transform: perspective(120px)
+    }
+}

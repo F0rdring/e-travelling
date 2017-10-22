@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class GlobalFn {
 
-    baseUrl = '';
+    baseUrl = 'http://haoyangtx.mynatapp.cc/';
 
     constructor(private router: Router) { }
 

@@ -2,39 +2,48 @@ var router = require('express').Router();
 var path = require('path');
 var fs = require('fs');
 var superagent = require('superagent');
+var schedule = require('node-schedule');
 
-router.post('/data', function (req, res, next) {
-    var resp = {};
-    travel(path.resolve(__dirname, './data'), function (res) {
-        Object.assign(resp, res);
-    });
-    res.send(resp);
+var url = 'http://haoyangtx.mynatapp.cc/';
+
+var rule = new schedule.RecurrenceRule();
+rule.hour = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22];
+rule.minute = 0;
+
+var j = schedule.scheduleJob(rule, function () {
+    getConfig();
 });
 
-router.get('./sse', function (req, res, next) {
-    var query = req.query;
-    var interval = setInterval(function () {
-        var sreq = superagent.get(query['url'])
-            .end(function (err, resp) {
-                if (err) clearInterval(interval);
-                var text = err ? err.response.text : resp.text;
-                res.write('data: ' + text + '\n\n');
-            });
-    }, 10000);
-});
-
-function travel(dir, callback) {
-    fs.readdirSync(dir).forEach(function (file, index, array) {
-        var pathname = path.join(dir, file);
-        if (fs.statSync(pathname).isDirectory()) {
-            travel(pathname, callback);
-        } else {
-            let res = {};
-            var name = pathname.replace(/\\/g, '-').replace(/\//g, '-').split('-').pop();
-            if (name.indexOf('txt') > 0 && name.split('.')[0].length > 0) es[name.split('.')[0]] = fs.readFileSync(pathname, 'utf-8');
-            callback(res);
-        }
-    });
+var getConfig = function (res) {
+    global._timestamp = Date.parse(new Date()) / 1000;
+    global._nonceStr = 'e1eg@nce';
+    global._url = url;
+    superagent.get('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxaa952ed06fe5fb6d&secret=61dd2703435743c135a35a9f42cff6aa')
+        .end(function (err, resp) {
+            global._access_token = resp.body.access_token;
+            superagent.get('https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=' + global._access_token + '&type=jsapi')
+                .end(function (err, respo) {
+                    global._ticket = respo.body.ticket;
+                    var string1 = 'jsapi_ticket=' + global._ticket + '&noncestr=' + global._nonceStr + '&timestamp=' + global._timestamp + '&url=' + global._url;
+                    var sha1 = require('crypto').createHash('sha1');
+                    sha1.update(string1);
+                    global._config = {
+                        debug: true,
+                        appId: 'wxaa952ed06fe5fb6d',
+                        timestamp: global._timestamp,
+                        nonceStr: global._nonceStr,
+                        signature: sha1.digest('hex'),
+                        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'hideMenuItems']
+                    };
+                    if (res) res.send({ config: global._config, ticket: global._ticket, access_token: global._access_token });
+                });
+        });
 }
+
+router.get('/signature', function (req, res, next) {
+    if (global._config) {
+        res.send({ config: global._config, ticket: global._ticket, access_token: global._access_token });
+    } else { getConfig(res); }
+});
 
 module.exports = router;

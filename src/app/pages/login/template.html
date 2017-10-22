@@ -1,13 +1,23 @@
-<div class="title slds-align_absolute-center slds-text-heading_small">请登录您的账号以完成绑定</div>
-<div class="slds-m-top_large slds-form-element">
-    <div class="slds-form-element__control">
-        <input class="slds-input" type="text" placeholder="手机号码" [(ngModel)]="cellNumber" />
+<div class="page-container">
+    <div class="title slds-align_absolute-center slds-text-heading_small">请登录e驾游领取卡券</div>
+    <div class="slds-m-top_large slds-form-element">
+        <div class="slds-form-element__control">
+            <input class="slds-input" type="text" placeholder="手机号码" [(ngModel)]="cellNumber" />
+        </div>
+    </div>
+    <div class="slds-m-top_x-small slds-grid slds-wrap slds-grid_pull-padded">
+        <div class="slds-p-horizontal_small slds-size_6-of-12 slds-form-element">
+            <div class="slds-form-element__control">
+                <input class="slds-input" type="text" placeholder="手机验证码" [(ngModel)]="cellCode" />
+            </div>
+        </div>
+        <div class="slds-p-horizontal_small slds-size_6-of-12">
+            <button class="slds-p-horizontal_small" type="button" nglButton="brand" (click)="getCellCode()">获取验证码</button>
+        </div>
+    </div>
+    <button class="slds-m-top_x-small" type="button" nglButton="brand" (click)="login()">登录</button>
+    <div class="slds-m-top_x-small text_x-small">
+        若您在e驾游还没有账号我们会自动为您注册,
+        <a>注册协议</a>
     </div>
 </div>
-<div class="slds-m-top_x-small slds-form-element">
-    <div class="slds-form-element__control">
-        <input class="slds-input" type="text" placeholder="密码" [(ngModel)]="password" />
-    </div>
-</div>
-<button class="slds-m-top_large" type="button" nglButton="brand" (click)="login()">登录</button>
-<button class="slds-m-top_x-small" type="button" nglButton="neutral" (click)="register()">还没有账号？</button>
